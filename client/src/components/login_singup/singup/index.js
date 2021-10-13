@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 const Singup = () => {
@@ -18,7 +19,7 @@ const Singup = () => {
     }
 
     const sendData = (state) => {
-
+        axios.post('http://localhost:3001/singup', state)
     }
 
     return (
