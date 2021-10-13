@@ -18,7 +18,9 @@
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.13",
@@ -29,7 +31,9 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/express-handlebars": "^5.3.1",
     "@types/express-session": "^1.17.4",
+    "@types/method-override": "^0.0.32",
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.3",
     "@types/node": "^16.10.3"
