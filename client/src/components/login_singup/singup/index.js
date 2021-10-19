@@ -18,8 +18,8 @@ const Singup = () => {
         event.preventDefault();
     }
 
-    const sendData = (state) => {
-        axios.post('http://localhost:3001/singup', state)
+    const sendData = async (state) => {
+        await axios.post('user/singup',  (state) )
     }
 
     return (
@@ -36,7 +36,7 @@ const Singup = () => {
                 <label> PASSWORD </label>
                 <input id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
 
-                <button type='submit' onClick={() => sendData(state)}/>
+                <button type='submit' onClick={() => sendData(state)}> SEND </button>
             </form>
         </div>
     )

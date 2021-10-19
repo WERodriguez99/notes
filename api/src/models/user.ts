@@ -1,9 +1,11 @@
 import mongoose, { Schema, model, ObjectId } from 'mongoose';
 
 export interface User extends mongoose.Document {
+    id: ObjectId,
     name: string,
-    password: string,
-    email: string,
+    pass: string,
+    mail: string,
+    active: boolean | null
 }
 
 const user_schema = new Schema({
@@ -14,15 +16,20 @@ const user_schema = new Schema({
         trim: true,
     },
 
-    password: {
+    pass: {
         type: String,
         require: true,
     },
 
-    email: {
+    mail: {
         type: String,
         required: true,
-    }
+    },
+
+    activ: {
+        type: Boolean,
+        default: false
+    },
 }, {
     versionKey: false,
     timestamps: true,

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 
 export const notes = ( __req: Request, res: Response, next: NextFunction ) => {
-    res.send('Hello')
+    res.json({ msj: 'Hello' })
 }
