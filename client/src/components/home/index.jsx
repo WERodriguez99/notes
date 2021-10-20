@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getDataUser } from '../../redux/actions/home'
+import NewNote from './note';
+
+import { getDataUser } from '../../redux/actions/home';
 
 export default function Home () {
     
@@ -11,7 +13,9 @@ export default function Home () {
         dispatch(getDataUser())
     }, [dispatch])
     return (
-        <div></div>
+        <div>
+            <NewNote/>
+        </div>
     )
     
 }

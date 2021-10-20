@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, ErrorRequestHandler } from 'express';
 
 // MIDDLEWARES
 import { verifyUser } from '../../middlewares/verifyUser';
@@ -6,16 +6,25 @@ import { veriryToken } from '../../middlewares/verifyToken';
 
 // CONTROLLERS
 
-import { notes } from '../../controllers/user/notes';
 import { singup } from '../../controllers/user/singup';
 import { login } from '../../controllers/user/login';
+import { account } from '../../controllers/user/account';
+import { addNote } from '../../controllers/user/add_note';
+import { modifyNote } from '../../controllers/user/modify_note';
+import { deleteNote } from '../../controllers/user/delete_note';
 
 export const user = Router();
+
+const errorHadler: ErrorRequestHandler = ( err, __req, res, __next) => {
+    console.log(err)
+    res.status(400).json({ msj: err })
+}
 
 user.post('/singup', singup)
 user.post('/login', verifyUser, login)
 
-user.get('/home', veriryToken, notes)
-user.post('/notes')
-user.put('/notes:id')
-user.delete('/notes:id')
+user.get('/home', veriryToken, account)
+user.post('/notes', addNote)
+user.put('/notes:id', modifyNote)
+user.delete('/notes:id', deleteNote)
+user.use(errorHadler)

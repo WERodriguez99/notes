@@ -16,7 +16,6 @@ export const singup = async ( req: Request, res: Response, __next: NextFunction 
         res.header('auth-token', token).status(200).json({msj: "User created"});
     }
     catch(err){
-        console.log(err)
-        res.status(500)
+        next(err)
     }
 }

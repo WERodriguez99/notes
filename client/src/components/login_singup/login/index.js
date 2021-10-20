@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import utils from '../../../utils';
 import axios from 'axios';
 
 import { login } from '../../../redux/actions/login';
@@ -19,10 +20,6 @@ const Login = () => {
         setState({...state, [id]: value})
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
-
     const sendData = async state => {
         try {
             dispatch( login(state) )
@@ -37,7 +34,7 @@ const Login = () => {
         <div>
             <h2> login </h2>
 
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => utils.handleSubmit(e)}>
                 <label> MAIL </label>
                 <input id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
 

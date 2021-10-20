@@ -10,6 +10,7 @@ export const login = (store) => async (dispatch) => {
         dispatch({ type: USER_LOGIN_STATE, payload: data.auth });
         window.location.href = "http://localhost:3000/notes";
         localStorage.setItem('token', data.token);
+        localStorage.setItem('user', data.mail);
     }
     catch(err){
         console.log(err)
