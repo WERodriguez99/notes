@@ -1,9 +1,12 @@
 import mongoose, { Schema, model, ObjectId } from 'mongoose';
 
 export interface Note extends mongoose.Document {
+    _id: ObjectId,
     title: string,
     note: string,
     author: ObjectId,
+    createdAt: string,
+    updatedAt: string
 }
 
 const note_schema = new Schema({
@@ -29,4 +32,4 @@ const note_schema = new Schema({
     timestamps: true,
 });
 
-export default model<Note>('Note', note_schema)
+export default model<Note>('notes', note_schema)

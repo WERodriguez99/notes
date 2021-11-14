@@ -1,11 +1,17 @@
+
 import mongoose, { Schema, model, ObjectId } from 'mongoose';
 
+import { Note } from './note' 
+
 export interface User extends mongoose.Document {
-    id: ObjectId,
+    _id: ObjectId,
     name: string,
     pass: string,
     mail: string,
-    active: boolean | null
+    activ: boolean,
+    createdAt: string,
+    updatedAt: string,
+    userNotes?: Note[],
 }
 
 const user_schema = new Schema({

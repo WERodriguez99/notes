@@ -3,7 +3,7 @@ import modelUser, { User } from '../../models/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-export const singup = async ( req: Request, res: Response, __next: NextFunction ) => {
+export const singup = async ( req: Request, res: Response, next: NextFunction ) => {
     try {
         const { name, mail, pass }: User = req.body;
         const hashedPass: string = await bcrypt.hash(pass, 15);

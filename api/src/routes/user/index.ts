@@ -23,7 +23,7 @@ const errorHadler: ErrorRequestHandler = ( err, __req, res, __next) => {
 user.post('/singup', singup)
 user.post('/login', verifyUser, login)
 
-user.get('/home', veriryToken, account)
+user.get('/home', account)
 user.post('/notes', addNote)
 user.put('/notes:id', modifyNote)
 user.delete('/notes:id', deleteNote)
