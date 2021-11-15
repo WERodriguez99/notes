@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { user_notes } from './notes';
+import { user } from './user';
 
 export const api = Router();
 
-api.use('/notes', user_notes)
+api.use('/user', user)

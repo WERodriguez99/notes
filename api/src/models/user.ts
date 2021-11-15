@@ -1,9 +1,17 @@
+
 import mongoose, { Schema, model, ObjectId } from 'mongoose';
 
+import { Note } from './note' 
+
 export interface User extends mongoose.Document {
+    _id: ObjectId,
     name: string,
-    password: string,
-    email: string,
+    pass: string,
+    mail: string,
+    activ: boolean,
+    createdAt: string,
+    updatedAt: string,
+    userNotes?: Note[],
 }
 
 const user_schema = new Schema({
@@ -14,15 +22,20 @@ const user_schema = new Schema({
         trim: true,
     },
 
-    password: {
+    pass: {
         type: String,
         require: true,
     },
 
-    email: {
+    mail: {
         type: String,
         required: true,
-    }
+    },
+
+    activ: {
+        type: Boolean,
+        default: false
+    },
 }, {
     versionKey: false,
     timestamps: true,

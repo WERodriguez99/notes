@@ -16,4 +16,4 @@ server.use(session({
     saveUninitialized: true,
 }))
 
-server.use('/api', api)
+server.use('/', api)
