@@ -10,10 +10,10 @@ export const modifyNote = async ( req: Request, res: Response, next: NextFunctio
         const modifyMaterial: Note = await noteModel.findByIdAndUpdate(id, { title, note, author });
 
         if(!modifyMaterial) {
-            throw new Error("Id not found");
+            throw new Error("Note not found");
         }
 
-        modifyMaterial && res.status(200).json({msj: "Material modificado con exito"})
+        modifyMaterial && res.status(200).json({msj: "Modify note"})
     }
     catch(err){
         next(err)

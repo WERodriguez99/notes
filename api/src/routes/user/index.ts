@@ -16,14 +16,13 @@ import { deleteNote } from '../../controllers/user/delete_note';
 export const user = Router();
 
 const errorHadler: ErrorRequestHandler = ( err, __req, res, __next) => {
-    console.log(err)
-    res.status(400).json({ msj: err })
+    res.status(400).json({ msj: err.message })
 }
 
 user.post('/singup', singup)
 user.post('/login', verifyUser, login)
 
-user.get('/home', account)
+user.get('/home', veriryToken, account)
 user.post('/notes', addNote)
 user.put('/notes:id', modifyNote)
 user.delete('/notes:id', deleteNote)

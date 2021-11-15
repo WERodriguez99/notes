@@ -9,15 +9,19 @@ const App: React.FC = (): JSX.Element => {
 
   const mainRoute = {
     path: '/',
-    element: <Home />,
+    element: <Register_login />,
+    /* children: [
+      { patch: 'notes', element: <Navigate to='/notes' /> }
+    ] */
   }
 
-/*   const homeRoute = {
-    path: '/notes',
-    elemnt: <Home/>
-  } */
+  const homeRoute = {
+    path: 'notes',
+    element: <Home/>,
+    
+  }
 
-  const routing = useRoutes([mainRoute])
+  const routing = useRoutes([mainRoute, homeRoute])
   return <>{routing}</>;
 }
 
