@@ -5,7 +5,7 @@ export const deleteNote = async ( req: Request, res: Response, next: NextFunctio
     try {
         const { id } = req.params;
         await noteModel.findByIdAndDelete(id);
-        res.status(200).json({msj: "Material eliminado"})
+        res.status(200).json({msj: "Delete note"})
     }
     catch(err){
         next(err)

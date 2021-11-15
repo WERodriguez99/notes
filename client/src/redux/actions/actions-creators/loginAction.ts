@@ -26,9 +26,10 @@ const Login = (info: { mail: string, pass: string }) => async (dispatch: Dispatc
     }
 
     catch(err: any){
+        
         dispatch({
             type: ActionType.LOGIN_FAIL,
-            payload: err.msj
+            payload: err.response.data.msj
         })
     }
 };

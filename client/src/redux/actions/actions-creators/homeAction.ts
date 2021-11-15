@@ -17,7 +17,7 @@ const Home = () => async ( dispatch: Dispatch<Action>) => {
         
         if(token && user){
             const { data } = await axios.get<HomeModel>(`user/home?mail=${user}`, {
-                headers: { "x-acces-token": token },
+                headers: { "x-access-token": token },
             });
 
             return dispatch({

@@ -14,7 +14,7 @@ export const verifyUser = async ( req: Request, __res: Response, next: NextFunct
 
         if(!user) throw new Error('User not found');
         if(user){
-            if(!bcrypt.compareSync(pass, user.pass)) throw new Error('Password is invalid')
+            if(!bcrypt.compareSync(pass, user.pass)) throw new Error('mail or password is invalid')
             else next()
         }
 

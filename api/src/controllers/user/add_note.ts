@@ -7,7 +7,7 @@ export const addNote = async ( req: Request, res: Response, next: NextFunction )
         
         const newNote = new noteModel({title, note, author});
         const noteCreate = await newNote.save();
-        res.status(200).json({msj: 'Success creation note', info: noteCreate})
+        res.status(200).json({ msj: 'Success creation note' })
     }
     catch(err){
         next(err)
