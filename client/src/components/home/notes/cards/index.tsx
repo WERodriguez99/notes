@@ -10,12 +10,15 @@ const Notes: React.FC = (): JSX.Element => {
     
     const user = useSelector(( state: rootStore ) => state.home.data)
     const dispatch = useDispatch();
-
+    const get_details = (id: string) => {
+        dispatch( NoteActions.loading() )
+        dispatch( NoteActions.DetailsNote(id) )
+    }
     return (
         <>
             { 
                 user?.userNotes && user?.userNotes.length > 0 ? user.userNotes.map( note => 
-                <div key={note._id} onClick={()=> dispatch(NoteActions.DetailsNote(note._id))}>
+                <div key={note._id} onClick={()=> get_details(note._id)}>
                 <Note 
                     key={note._id}
                     id={note._id}

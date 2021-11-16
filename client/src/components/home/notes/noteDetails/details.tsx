@@ -1,8 +1,5 @@
 
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { rootStore } from '../../../../redux/store';
 
 interface INoteDetails {
     id: string,

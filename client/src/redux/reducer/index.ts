@@ -1,12 +1,12 @@
 
 import { combineReducers } from 'redux';
 
-import login from './login';
+import register_login from './register_login';
 import home from './home';
 import note from './note';
 
 const reducers = combineReducers({
-    login,
+    register_login,
     home,
     note,
 });

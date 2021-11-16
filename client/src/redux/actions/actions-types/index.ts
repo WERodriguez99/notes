@@ -1,9 +1,13 @@
 
 enum ActionType {
-    // Actions types login
-    LOGIN_REQUEST = "GET_LOGIN_REQUEST",
+
+    // Actions types register - login
+    GET_REQUEST = "GET_REQUEST",
+    REGISTER_SUCCESS = "REGISTER_RSUCCESS",
+    
     LOGIN_SUCCESS = "GET_LOGIN_SUCCESS",
-    LOGIN_FAIL = "GET_LOGIN_FAIL",
+    
+    GET_FAIL = "GET_FAIL",
 
     // Actions types of home info
     GET_HOME_REQUEST = "GET_HOME_REQUEST",

@@ -6,25 +6,29 @@ import { Action } from '../actions-interface/home';
 import HomeModel from '../../../models/home';
 import ActionType from '../actions-types';
 
-const Home = () => async ( dispatch: Dispatch<Action>) => {
+const Home = () => ( dispatch: Dispatch<Action>) => {
     try {
         dispatch({
             type: ActionType.GET_HOME_REQUEST
         });
 
-        const token = localStorage.getItem("token");
-        const user = localStorage.getItem("user");
+        setTimeout( async () => { 
+            const token = localStorage.getItem("token");
+            const user = localStorage.getItem("user");
         
-        if(token && user){
-            const { data } = await axios.get<HomeModel>(`user/home?mail=${user}`, {
-                headers: { "x-access-token": token },
-            });
+            if(token && user){
+                const { data } = await axios.get<HomeModel>(`user/home?mail=${user}`, {
+                    headers: { "x-access-token": token },
+                });
 
-            return dispatch({
-                type: ActionType.GET_HOME_SUCCESS,
-                payload: data,
-            });
-        };
+                return dispatch({
+                    type: ActionType.GET_HOME_SUCCESS,
+                    payload: data,
+                });
+            };
+        }, 3000)
+
+        
     }
     catch(err: any){
         dispatch({

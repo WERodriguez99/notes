@@ -1,10 +1,10 @@
 
 import React from 'react';
 
-const loader: React.FC = (): JSX.Element => {
+const Loader: React.FC = (): JSX.Element => {
     return (
-        <div></div>
+        <h1>LOADING...</h1>
     )
 };
 
-export default loader;
+export default Loader;

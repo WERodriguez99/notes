@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, ReactElement } from 'react';
 import { useDispatch } from 'react-redux'
 import utils from '../../../utils'
 
-import LoginAction from '../../../redux/actions/actions-creators/loginAction';
+import RegisterLoginAction from '../../../redux/actions/actions-creators/register_loginAction';
 
 interface StateModel {
     mail: string,
@@ -25,7 +25,8 @@ const Login: React.FC = (): JSX.Element => {
     };
 
     const sendData = ( state: StateModel ): void => {
-        dispatch(LoginAction(state))
+        dispatch(RegisterLoginAction.loading())
+        dispatch(RegisterLoginAction.Login(state))
     }
 
     return (

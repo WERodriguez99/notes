@@ -1,8 +1,12 @@
 
-import axios from 'axios';
 import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import RegisterActions from '../../../redux/actions/actions-creators/register_loginAction';
 
 const Register: React.FC = (): JSX.Element => {
+
+    const dispatch = useDispatch()
     
     type stateModel  = {
         name: string,
@@ -27,7 +31,8 @@ const Register: React.FC = (): JSX.Element => {
     }
 
     const sendData = async (state: stateModel): Promise<void> => {
-        await axios.post('user/singup',  (state) )
+        dispatch( RegisterActions.loading() );
+        dispatch( RegisterActions.Register(state) )
     }
 
     return (

@@ -17,7 +17,7 @@ const Note = {
 
     DetailsNote: ( id: string ) => async ( dispatch: Dispatch<Action> ) => {
         try {
-            const { data } = await axios.get<NoteModel>(`user/note/details/:id=${id}`)
+            const { data } = await axios.get<NoteModel>(`user/note/${id}`)
     
             return dispatch({
                 type: ActionType.GET_NOTE_SUCCESS,
@@ -28,14 +28,14 @@ const Note = {
         catch(err: any){
             dispatch({
                 type: ActionType.NOTE_FAIL,
-                payload: err.msj
+                payload: err.response.data.msj
             });
         }
     },
 
     NewNote: ( info: { title: string, note: string, author: string }) => async ( dispatch: Dispatch<Action> ) => {
         try {
-            const { data } = await axios.post<MessageModel>(`/user/notes`, info);
+            const { data } = await axios.post<MessageModel>(`/user/note`, info);
 
             return dispatch({
                 type: ActionType.POST_NEW_NOTE_SUCCESS,
@@ -45,14 +45,14 @@ const Note = {
         catch(err: any){
             dispatch({
                 type: ActionType.NOTE_FAIL,
-                payload: err.msj
+                payload: err.response.data.msj
             });
         }
     },
 
     ModifyNote: ( id: string ) => async ( dispatch: Dispatch<Action> ) => {
         try {
-            const { data } = await axios.put<MessageModel>(`/user/notes/${id}`);
+            const { data } = await axios.put<MessageModel>(`/user/note/${id}`);
 
             return dispatch({
                 type: ActionType.PUT_NOTE_SUCCESS,
@@ -62,14 +62,14 @@ const Note = {
         catch(err: any){
             dispatch({
                 type: ActionType.NOTE_FAIL,
-                payload: err.msj
+                payload: err.response.data.msj
             });
         }
     },
 
     DeleteNote: ( id: string ) => async ( dispatch: Dispatch<Action> ) => {
         try {
-            const { data } = await axios.delete<MessageModel>(`/user/notes/${id}`);
+            const { data } = await axios.delete<MessageModel>(`/user/note/${id}`);
 
             return dispatch({
                 type: ActionType.DELETE_NOTE_SUCCESS,
@@ -79,7 +79,7 @@ const Note = {
         catch(err: any){
             dispatch({
                 type: ActionType.NOTE_FAIL,
-                payload: err.msj
+                payload: err.response.data.msj
             });
         }
     },

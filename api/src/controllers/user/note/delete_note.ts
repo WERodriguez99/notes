@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import noteModel from '../../models/note';
+import noteModel from '../../../models/note';
 
 export const deleteNote = async ( req: Request, res: Response, next: NextFunction ) => {
     try {

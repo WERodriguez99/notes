@@ -11,7 +11,7 @@ interface Home {
 }
 
 const initialState = {
-    loading: false,
+    loading: true,
     err: null,
     data: null,
 }
