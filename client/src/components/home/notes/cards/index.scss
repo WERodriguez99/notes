@@ -1,0 +1,21 @@
+
+@import '../../../../scss/mixins.scss';
+@import '../../../../scss/variants.scss';
+
+.container_notes {
+    margin: .5rem;
+    background: $backform;
+    border-radius: 10px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.container_notes:hover {
+    cursor: pointer;
+    //background: $backgraundColor_2;
+    transform: scale(1.1, 1.1);
+    box-shadow: 0px 0px 10px 3px black;
+}

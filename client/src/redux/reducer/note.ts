@@ -24,14 +24,16 @@ const note = ( state: Note = initialState, action: Action ): Note => {
             return { ...state, loading: true, details: null, message: null }
         case ActionsType.GET_NOTE_SUCCESS:
             return { ...state, details: action.payload, loading: false, err: null }
+        case ActionsType.CLEAN_NOTE: 
+            return { ...state, details: null }
         case ActionsType.POST_NEW_NOTE_SUCCESS:
             return { ...state, message: action.payload, loading: false, err: null }
         case ActionsType.PUT_NOTE_SUCCESS:
-            return { ...state, message: action.payload, loading: false, err: null }
+            return { ...state, details: null, message: action.payload, loading: false, err: null }
         case ActionsType.DELETE_NOTE_SUCCESS:
-            return { ...state, message: action.payload, loading: false, err: null }
+            return { ...state, details: null, message: action.payload, loading: false, err: null }
         case ActionsType.NOTE_FAIL:
-            return { ...state, err: action.payload, loading: false }
+            return { ...state, details: null, err: action.payload, loading: false }
         default:
             return state
     };

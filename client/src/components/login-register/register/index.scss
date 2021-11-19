@@ -1,0 +1,23 @@
+
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variants.scss';
+
+.form_register {
+    
+    h2 {
+        color:#CDCDC0;
+        margin-bottom: .5vh;
+    }
+    
+    form {
+        @include form();
+    };
+
+    input {
+        @include input_form($box_shadow, $backform, 1rem, 1.5vh)
+    }
+
+    button {
+        @include button($backform)
+    };
+}

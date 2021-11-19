@@ -11,6 +11,10 @@ interface GetNoteSuccessAction {
     payload: NoteModel,
 };
 
+interface CleanNoteAction {
+    type: ActionType.CLEAN_NOTE,
+}
+
 interface PostNoteSuccessAction {
     type: ActionType.POST_NEW_NOTE_SUCCESS,
     payload: string,
@@ -34,6 +38,7 @@ interface NoteFail {
 export type Action = 
     | NoteRequestAction
     | GetNoteSuccessAction
+    | CleanNoteAction
     | PostNoteSuccessAction
     | PutNoteSuccessAction
     | DeleteNoteSuccessAction

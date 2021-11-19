@@ -6,6 +6,7 @@ import { rootStore } from '../../../../redux/store';
 import NoteActions from '../../../../redux/actions/actions-creators/noteActions';
 import utils from '../../../../utils'
 
+import './index.scss';
 
 const NewNote: React.FC = (): JSX.Element => {
 
@@ -17,7 +18,7 @@ const NewNote: React.FC = (): JSX.Element => {
         note: "",
     });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const id = e.target.id || e.target.name;
         const value = e.target.value;
 
@@ -31,10 +32,9 @@ const NewNote: React.FC = (): JSX.Element => {
 
     return (
         <form onSubmit={e => utils.handleSubmit(e)}>
-            <label> title </label>
             <input type="text" id="title" value={state.title} onChange={ e => handleChange(e)} placeholder="Title" />
 
-            <input type="text" id='note' value={state.note} onChange={ e => handleChange(e)} placeholder='You note' />
+            <textarea id='note' value={state.note} onChange={ e => handleChange(e)} placeholder='You note...' />
 
             <button type='submit' onClick={() => send()}> send </button>
         </form>

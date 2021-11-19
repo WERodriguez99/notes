@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import Details from './details'
 import { rootStore } from '../../../../redux/store';
 
+import './index.scss';
+
 const DetailsNote = () => {
     const store = useSelector(( state: rootStore ) => state.note.details );
 

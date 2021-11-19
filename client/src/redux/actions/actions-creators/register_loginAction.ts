@@ -44,7 +44,6 @@ const login_register = {
     
             window.location.href = "http://localhost:3000/notes";
             localStorage.setItem('token', data.token);
-            localStorage.setItem('user', data.mail);
         }
     
         catch(err: any){

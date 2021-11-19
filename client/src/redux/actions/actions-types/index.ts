@@ -19,6 +19,7 @@ enum ActionType {
     NOTE_FAIL = "POST_NEW_NOTE_FAIL",
         // Details note
         GET_NOTE_SUCCESS = "GET_NOTE_SUCCESS", 
+        CLEAN_NOTE = "CLEAN_NOTE",
         // New note
         POST_NEW_NOTE_SUCCESS = "POST_NEW_NOTE_SUCCESS",
         // Modify note

@@ -1,0 +1,113 @@
+
+@import '../../../../scss/mixins.scss';
+@import '../../../../scss/variants.scss';
+
+.container_DNote{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10vh;
+    bottom: 0;
+    margin: auto;
+    
+    background: rgba(255, 255, 255, 0.212);
+    z-index: 1;
+
+    .details {
+        position:absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 65vh;
+        width: 50vw;
+        border-radius: 15px;
+        background: $backform;
+        box-shadow: $box_shadow;
+        z-index: 100;
+        .tr_btn td{
+                height: 5vh;
+                width: 50vw;
+                background: $backgraundColor_3;
+                border-radius: 10px 10px 0px 0px;
+                box-shadow: 0 5px 10px $borderColor;
+                         
+                button {
+                    height: 1vh;
+                    width: 1.6vw;
+                    position: absolute;
+                    right: 1vw;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                    transform: scale(1.1,1.1);
+                    background: rgb(0, 0, 0);
+                    border: none;
+                    border-radius: 15px;
+                }
+        }
+
+        .tr_title {
+            height: 5vh;
+            
+            td {
+                padding-top: 2.5rem;
+                text-align: center;
+                
+                input {
+                    height: 5vh;
+                    width: 40vw;
+                    font-size: 1.2rem;
+                    text-align: center;
+                    border: none;
+                    border-radius: 15px;
+                }
+                
+                h2 {
+                    
+                    margin-top: .2rem;
+                    font-size: 1.2rem;
+                    text-align: center;
+
+                }
+            }
+        }
+
+        .tr_note {
+            td {
+                textarea {
+                    width: 50vw;
+                    height: 30vh;
+                    margin: 1rem;
+                    border: none;
+                    background: none;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    overflow-x: hidden;
+                    color: black;
+                }
+            }
+        }
+
+        .tr_btns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            td {
+                margin-bottom: 1vh;
+                button {
+
+                    @include button($backgraundColor_3)
+                }
+
+                button:hover { 
+                    @include hoverBTN($borderColor, #ffff)
+                }
+            }
+        }
+    }
+    
+    
+}

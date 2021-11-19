@@ -5,6 +5,8 @@ import utils from '../../../utils'
 
 import RegisterLoginAction from '../../../redux/actions/actions-creators/register_loginAction';
 
+import './index.scss';
+
 interface StateModel {
     mail: string,
     pass: string
@@ -30,17 +32,15 @@ const Login: React.FC = (): JSX.Element => {
     }
 
     return (
-        <div>
+        <div className='form'>
             <h2> login </h2>
 
             <form onSubmit={e => utils.handleSubmit(e)}>
-                <label> MAIL </label>
-                <input id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
+                <input type='mail' id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
 
-                <label> PASSWORD </label>
-                <input id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
+                <input type='password' id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
 
-                <button type='submit' onClick={() => sendData(state)}> LOGIN </button>
+                <button type='submit' onClick={() => sendData(state)}> send </button>
             </form>
         </div>
     )

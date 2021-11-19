@@ -14,18 +14,20 @@ const Home = () => ( dispatch: Dispatch<Action>) => {
 
         setTimeout( async () => { 
             const token = localStorage.getItem("token");
-            const user = localStorage.getItem("user");
-        
-            if(token && user){
-                const { data } = await axios.get<HomeModel>(`user/home?mail=${user}`, {
+                    
+            if(token){
+                const { data } = await axios.get<HomeModel>(`user/home`, {
                     headers: { "x-access-token": token },
                 });
+
+                console.log(data)
 
                 return dispatch({
                     type: ActionType.GET_HOME_SUCCESS,
                     payload: data,
                 });
-            };
+            }
+            else window.location.href = "http://localhost:3000/";
         }, 3000)
 
         

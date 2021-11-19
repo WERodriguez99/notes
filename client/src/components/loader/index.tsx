@@ -1,9 +1,12 @@
 
 import React from 'react';
 
+ import './index.scss';
+
 const Loader: React.FC = (): JSX.Element => {
     return (
-        <h1>LOADING...</h1>
+        <div className='loader' >
+        </div>
     )
 };
 

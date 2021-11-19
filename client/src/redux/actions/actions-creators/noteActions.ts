@@ -33,6 +33,12 @@ const Note = {
         }
     },
 
+    CleanNote: () => ( dispatch: Dispatch<Action> ) => {
+        return dispatch({
+            type: ActionType.CLEAN_NOTE,
+        })
+    },
+
     NewNote: ( info: { title: string, note: string, author: string }) => async ( dispatch: Dispatch<Action> ) => {
         try {
             const { data } = await axios.post<MessageModel>(`/user/note`, info);
@@ -50,9 +56,9 @@ const Note = {
         }
     },
 
-    ModifyNote: ( id: string ) => async ( dispatch: Dispatch<Action> ) => {
+    ModifyNote: ( id: string, info: {title: string, note: string} ) => async ( dispatch: Dispatch<Action> ) => {
         try {
-            const { data } = await axios.put<MessageModel>(`/user/note/${id}`);
+            const { data } = await axios.put<MessageModel>(`/user/note/${id}`, info);
 
             return dispatch({
                 type: ActionType.PUT_NOTE_SUCCESS,

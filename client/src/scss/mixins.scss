@@ -1,0 +1,67 @@
+
+
+@mixin buttonStyles($width:auto, $height:auto, $bg:none, $bR:0) {
+    width: $width;
+    height: $height;
+    outline: none;
+    background: $bg;
+    border: 1px solid transparent;
+    border-radius: $bR;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+@mixin containerForm($brColor, $bgColor, $p_left, $p_top, $whidth, $height) {
+   position: absolute;
+   left: $p_left;
+   right: 0;
+   top: $p_top;
+   margin: auto;
+   width: $whidth;
+   height: $height;
+   background: $bgColor;
+   border-radius: 15px;
+   box-shadow: 0px 0px 15px $brColor;
+}
+
+@mixin form() {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+
+    display: grid;
+}
+
+@mixin button($bgColor) {
+    cursor: pointer;
+    width: 5rem;
+    border: none;
+    border-radius: 15px;
+    background: $bgColor;
+}
+
+@mixin hoverBTN($bgColor, $color) {
+    background: $bgColor;
+    color: $color;
+    transform: scale(1.2,1.2);
+}
+
+@mixin input_form($brColor, $bgColor, $font_s, $height) {
+    background: $bgColor;
+    padding: .5rem;
+    font-size: $font_s;
+    border: none;
+    border-radius: 10px;
+    height: $height;
+    text-align: center;
+}
+
+@mixin textArea_form($brColor, $bgColor) {
+    background: $bgColor;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    height: 47vh;
+    text-align: center;
+    font-size: 1rem;
+}

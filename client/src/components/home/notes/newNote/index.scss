@@ -1,0 +1,19 @@
+
+@import '../../../../scss/mixins.scss';
+@import '../../../../scss/variants.scss';
+
+form {
+    @include form();
+
+    input {
+        @include input_form($borderColor, $backform, 1.3rem, 3vh)
+    };
+
+    textarea {
+        @include textArea_form($borderColor, $backform)
+    };
+
+    button {
+        @include button($backform)
+    }
+}
