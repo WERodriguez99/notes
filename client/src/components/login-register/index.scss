@@ -1,0 +1,88 @@
+
+@import '../../scss/mixins.scss';
+@import '../../scss/variants.scss';
+
+body {
+    background: $backform;
+}
+
+.containerForm_login {
+    @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 30vh)
+}
+.containerForm_register {
+    @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 36vh)
+}
+
+.send_btn_login {
+    position: absolute;
+    top: 68vh;
+    left: 56.5vw;
+    right: 0;
+    margin: auto;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    border-bottom: 1px solid black;
+}
+
+.send_btn_login:hover {
+    border-bottom: 1px solid black;
+}
+
+.send_btn_register {
+    position: absolute;
+    top: 74vh;
+    left: 56.5vw;
+    right: 0;
+    margin: auto;
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    border-bottom: 1px solid black;
+}
+
+.send_btn_register:hover {
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .containerForm_login {
+        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 30vh)
+    }
+
+    .containerForm_register {
+        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 36vh)
+    }
+
+    .send_btn_login {
+        top: 68vh;
+    }
+
+    .send_btn_register {
+        top: 75vh;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .containerForm_login {
+        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 50vw, 30vh)
+    }
+
+    .containerForm_register {
+        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 50vw, 36vh)
+    }
+
+    .send_btn_login {
+        top: 68vh;
+    }
+
+    .send_btn_register {
+        top: 75vh;
+    }
+}
