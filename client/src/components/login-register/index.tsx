@@ -10,6 +10,7 @@ import Loader from '../loader';
 import Register from './register';
 import Login from './login';
 
+
 import './index.scss'
 
 const Register_login: React.FC = (): JSX.Element => {

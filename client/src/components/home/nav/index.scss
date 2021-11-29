@@ -14,9 +14,9 @@
     }
 
     button {
+        @include button($backform);
         position: absolute;
-        height: 4vh;
-        top: 1rem;
-        right: 1rem;
+        right: 5vw;
+        top: 3.6vh;
     }
 }

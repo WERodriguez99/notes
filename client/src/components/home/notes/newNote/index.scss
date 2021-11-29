@@ -10,7 +10,8 @@ form {
     };
 
     textarea {
-        @include textArea_form($borderColor, $backform)
+        @include textArea_form($borderColor, $backform);
+        
     };
 
     button {

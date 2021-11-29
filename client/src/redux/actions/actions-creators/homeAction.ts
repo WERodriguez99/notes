@@ -6,7 +6,7 @@ import { Action } from '../actions-interface/home';
 import HomeModel from '../../../models/home';
 import ActionType from '../actions-types';
 
-const Home = () => ( dispatch: Dispatch<Action>) => {
+const Home = ( notes: string ) => ( dispatch: Dispatch<Action>) => {
     try {
         dispatch({
             type: ActionType.GET_HOME_REQUEST
@@ -16,11 +16,9 @@ const Home = () => ( dispatch: Dispatch<Action>) => {
             const token = localStorage.getItem("token");
                     
             if(token){
-                const { data } = await axios.get<HomeModel>(`user/home`, {
+                const { data } = await axios.get<HomeModel>(`user/home?notes=${notes}`, {
                     headers: { "x-access-token": token },
                 });
-
-                console.log(data)
 
                 return dispatch({
                     type: ActionType.GET_HOME_SUCCESS,

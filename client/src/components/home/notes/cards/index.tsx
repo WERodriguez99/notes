@@ -5,8 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Note from './card';
 import { rootStore } from '../../../../redux/store';
 import NoteActions from '../../../../redux/actions/actions-creators/noteActions';
+import Pagination from '../../pagination';
 
 import utils from '../../../../utils';
+import Ufilter from '../../../../utils/filter';
 import './index.scss';
 
 const Notes: React.FC = (): JSX.Element => {
@@ -18,13 +20,29 @@ const Notes: React.FC = (): JSX.Element => {
         dispatch(NoteActions.DetailsNote(id))
     }
     const [state, setState] = useState(0)
-    const { page_size, skip }: { page_size: number, skip: number } = utils.paginate(state)
+    const [ filter, setFilter ] = useState('oldest')
+    
+    const { skip, page_size, max } = utils.paginate(state, user?.userNotes ? user.userNotes.length : 0)
+     
+    const selectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = e.target.value;
+        setFilter(value);
+      };
+
     return (
         <>
+    
+            <select className='filter' name='select' onChange={ e  => selectChange(e) }>
+                <option value='AtoZ'> A to Z </option>
+                <option value='ZtoA'> Z to A </option>
+                <option value='recent'> recent </option>
+                <option value='oldest'> oldest </option>
+            </select>
+
             {
                 user?.userNotes && user?.userNotes.length > 0 ?
                     <>
-                        {user.userNotes/* .splice(skip, page_size) */.map(note =>
+                        {Ufilter(user.userNotes, filter).slice(skip, page_size).map(note =>
                             <div className='container_notes' key={note._id} onClick={() => get_details(note._id)}>
                                 <Note
                                     key={note._id}
@@ -34,11 +52,11 @@ const Notes: React.FC = (): JSX.Element => {
                                 />
                             </div>
 
-                        )} <div>
-                            {/* <button onClick={() => setState(state - 1)}>{'<<'}</button>
-                            <button onClick={() => setState(state + 1)}>{'>>'}</button> */}
-                        </div>
-                    </> : <h2> Not notes </h2>
+                        )} 
+
+                            <Pagination setState={setState} page={state} max={max}/>
+
+                    </> : <h2 className='not_note'> NOT NOTE </h2>
             }
         </>
     )

@@ -14,6 +14,11 @@ enum ActionType {
     GET_HOME_SUCCESS = "GET_HOME_SUCCESS",
     GET_HOME_FAIL = "GET_HOME_FAIL",
 
+    // Notes in home
+    GET_NEW_NOTE_HOME = "GET_NEW_NOTE",
+    DELETE_NOTE_HOME =  "DELETE_NOTE_HOME",
+    PUT_NOTE_HOME = "PUT_NOTE_HOME",
+
     // Actions types of note
     NOTE_REQUEST = "POST_NEW_NOTE_REQUEST",
     NOTE_FAIL = "POST_NEW_NOTE_FAIL",

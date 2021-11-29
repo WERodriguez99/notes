@@ -12,14 +12,14 @@ const DetailsNote = () => {
 
     return (
         <>
-        {store && <Details
+        {/* {store && <Details
             id={store._id}
             title={store.title}
             author={store.author}
             note={store.note}
             createdAt={store.createdAt}
             updatedAt={store.updatedAt}
-        />}
+        />} */}
         </>
     )
 }

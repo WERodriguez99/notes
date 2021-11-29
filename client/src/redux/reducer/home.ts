@@ -1,7 +1,9 @@
 
 import HomeModel from '../../models/home';
+import NoteModel from '../../models/note';
 import ActionsType from '../actions/actions-types';
-import { Action } from '../actions/actions-interface/home';
+import { Action as AIHome } from '../actions/actions-interface/home';
+import { Action as AINotes } from '../actions/actions-interface/note';
 
 
 interface Home {
@@ -16,11 +18,15 @@ const initialState = {
     data: null,
 }
 
-const home = ( state: Home = initialState, action: Action ): Home => {
-
+const home = ( state: Home = initialState, action: AIHome | AINotes ): Home => {
+    
     switch( action.type ){
+        
+        
         case ActionsType.GET_HOME_REQUEST:
             return { ...state, loading: true }
+        case ActionsType.GET_NEW_NOTE_HOME:
+            return {...state, data: { ...state.data, userNotes: action.payload }}
         case ActionsType.GET_HOME_SUCCESS:
             return { ...state, loading: false, data: action.payload }
         case ActionsType.GET_HOME_FAIL: 

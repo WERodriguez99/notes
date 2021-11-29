@@ -1,5 +1,6 @@
 
 import HomeModel from '../../../models/home';
+import NoteModel from '../../../models/note';
 import ActionType from '../actions-types';
 
 interface GetHomeRequestAction {
@@ -16,9 +17,22 @@ interface GetHomeFailAction {
     payload: string,
 };
 
+
+interface DeleteNote {
+    type: ActionType.DELETE_NOTE_HOME,
+    payload: string,
+}
+
+interface PutNote {
+    type: ActionType.PUT_NOTE_HOME,
+    payload: string,
+}
+
 export type Action = 
     | GetHomeRequestAction
     | GetHomeSuccessAction
+    | PutNote
+    | DeleteNote
     | GetHomeFailAction
 
 

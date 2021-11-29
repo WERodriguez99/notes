@@ -1,5 +1,5 @@
 
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { rootStore } from '../../../../redux/store';
@@ -7,6 +7,7 @@ import NoteActions from '../../../../redux/actions/actions-creators/noteActions'
 import utils from '../../../../utils'
 
 import './index.scss';
+import alerts from '../../../../utils/alerts';
 
 const NewNote: React.FC = (): JSX.Element => {
 
@@ -17,6 +18,7 @@ const NewNote: React.FC = (): JSX.Element => {
         title: "",
         note: "",
     });
+    const [ Send, setSend ] = useState(false)
 
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const id = e.target.id || e.target.name;
@@ -25,10 +27,24 @@ const NewNote: React.FC = (): JSX.Element => {
         setState({ ...state, [id]: value })
     };
 
-    const send = async () => {
-        dispatch(NoteActions.loading());
-        dispatch(NoteActions.NewNote({ title: state.title, note: state.note, author: store.data?._id || "" }))
+    const send = () => {
+
+        !state.title ? alerts.alertError('title missing') 
+        :
+        !state.note ?  alerts.alertError('note missing')
+        :
+        ((() => { 
+            dispatch(NoteActions.loading());
+            dispatch(NoteActions.NewNote({ title: state.title, note: state.note, author: store.data?._id || "" }));
+            setState({ title: '', note: '', });
+            setSend(!Send) 
+        })())
+        
     };
+    
+    useEffect(() => {
+        dispatch(NoteActions.Notes('notes'));
+    }, [Send])
 
     return (
         <form onSubmit={e => utils.handleSubmit(e)}>
