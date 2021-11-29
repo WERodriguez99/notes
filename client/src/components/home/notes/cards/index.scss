@@ -1,0 +1,42 @@
+
+@import '../../../../scss/mixins.scss';
+@import '../../../../scss/variants.scss';
+
+.filter {
+    position: absolute;
+    background: $backform;
+    border: none;
+    border-radius: 10px;
+    right: .5vw;
+    top: -5vh;
+}
+
+.container_notes {
+    margin: .5rem;
+    background: $backform;
+    border-radius: 10px;
+}
+
+.not_note {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 6vw;
+    margin: auto;
+    text-align: center;
+    //background: $backform;
+    width: 10rem;
+    //border-radius: 15px;
+    //box-shadow: 0px 0px 15px 2px $borderColor;
+}
+
+.container_notes:hover {
+    cursor: pointer;
+    //background: $backgraundColor_2;
+    transform: scale(1.1, 1.1);
+    box-shadow: 0px 0px 10px 3px black;
+}
+
+.filter:hover {
+    transform: scale(1.1,1.1);
+}

@@ -1,0 +1,91 @@
+
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variants.scss';
+
+.form_register {
+    
+    h2 {
+        color:#CDCDC0;
+        margin-bottom: 1.5vh;
+        margin-top: 2vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        
+    }
+    
+    form {
+        @include form();
+    };
+
+    input {
+        @include input_form($box_shadow, $backform, 1rem, 1.5vh)
+    }
+
+    button {
+        margin-left: 8.6vw;
+        margin-top: .5vh; 
+        @include button($backform)
+    };
+}
+
+@media screen and (max-width: 950px) {
+    .form_register {
+        input {
+            width: 20vw;
+        }
+
+        button {
+            margin-left: 6.7vw;
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .form_register {
+        input {
+            width: 20vw;
+        };
+
+        button {
+            margin-left: 5.8vw;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .form_register {
+        input {
+            width: 18.9vw;
+        };
+
+        button {
+            margin-left: 5.5vw;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .form_register {
+        input {
+            width: 18.3vw;
+        };
+
+        button {
+            margin-left: 4.8vw;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .form_register {
+        input {
+            width: 17.5vw;
+        };
+
+        button {
+            margin-left: 3.7vw;
+        }
+    }
+}

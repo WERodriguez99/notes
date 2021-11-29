@@ -10,7 +10,7 @@ export const login = async ( req: Request, res: Response, next: NextFunction ) =
             expiresIn: 60 * 60 * 24, // 60*60*24s = 1day 
           });
 
-        res.status(200).json({ auth: true, token, mail})
+        res.status(200).json({ auth: true, token })
     }
     catch(err){
         next(err)

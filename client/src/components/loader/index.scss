@@ -1,0 +1,27 @@
+ 
+ @import '../../scss/mixins.scss';
+ @import '../../scss/variants.scss';
+
+ .loader {
+    border: .5rem solid rgba(0, 0, 0, 0.062);
+    border-top-color: $backgraundColor_3;
+    border-top-style: solid;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    -webkit-animation: girar 2.5s linear infinite;
+        -o-animation: girar 2.5s linear infinite;
+            animation: girar 2.5s linear infinite;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

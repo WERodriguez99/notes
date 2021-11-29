@@ -1,0 +1,46 @@
+
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variants.scss';
+
+.container_pagination {
+    position: absolute;
+    left: 0;
+    top: 37vh;
+    right: 0;
+    margin: auto;
+    justify-items: center;
+    
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    #btn_right {
+        position: absolute;
+        top: 2vh;
+        right: 15.5vw;
+        margin: auto;
+
+        
+    }
+
+    #btn_right:hover {
+        cursor: pointer;
+    } 
+
+    #btn_left {
+        position: absolute;
+        top: 2vh;
+        left: 15.5vw;
+        margin: auto;
+    }
+
+    #btn_left:hover {
+        cursor: pointer;
+    }
+
+    #page {
+        position: absolute;
+        top: 2vh;
+        margin: auto;
+    }
+}

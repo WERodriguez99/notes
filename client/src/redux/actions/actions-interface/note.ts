@@ -6,10 +6,19 @@ interface NoteRequestAction {
     type: ActionType.NOTE_REQUEST
 };
 
+interface GetNotes {
+    type: ActionType.GET_NEW_NOTE_HOME,
+    payload: NoteModel[],
+}
+
 interface GetNoteSuccessAction {
     type: ActionType.GET_NOTE_SUCCESS,
     payload: NoteModel,
 };
+
+interface CleanNoteAction {
+    type: ActionType.CLEAN_NOTE,
+}
 
 interface PostNoteSuccessAction {
     type: ActionType.POST_NEW_NOTE_SUCCESS,
@@ -33,7 +42,9 @@ interface NoteFail {
 
 export type Action = 
     | NoteRequestAction
+    | GetNotes
     | GetNoteSuccessAction
+    | CleanNoteAction
     | PostNoteSuccessAction
     | PutNoteSuccessAction
     | DeleteNoteSuccessAction

@@ -8,6 +8,9 @@ import LoginModel from '../../../models/login';
 import ActionType from '../actions-types';
 
 
+import alerts from '../../../utils/alerts';
+
+
 const login_register = {
     
     loading: () => async ( dispatch: Dispatch<Action> ) => dispatch({
@@ -29,7 +32,11 @@ const login_register = {
             dispatch({
                 type: ActionType.GET_FAIL,
                 payload: err.response.data.msj
-            })
+            });
+            
+            alerts.alertError(err.response.data.msj)
+            
+
         }
     },
 
@@ -44,7 +51,6 @@ const login_register = {
     
             window.location.href = "http://localhost:3000/notes";
             localStorage.setItem('token', data.token);
-            localStorage.setItem('user', data.mail);
         }
     
         catch(err: any){
@@ -53,6 +59,8 @@ const login_register = {
                 type: ActionType.GET_FAIL,
                 payload: err.response.data.msj
             })
+
+            alerts.alertError(err.response.data.msj)
         }
     }, 
 

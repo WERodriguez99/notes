@@ -5,19 +5,21 @@ import { useSelector } from 'react-redux';
 import Details from './details'
 import { rootStore } from '../../../../redux/store';
 
+import './index.scss';
+
 const DetailsNote = () => {
     const store = useSelector(( state: rootStore ) => state.note.details );
 
     return (
         <>
-        {store && <Details
+        {/* {store && <Details
             id={store._id}
             title={store.title}
             author={store.author}
             note={store.note}
             createdAt={store.createdAt}
             updatedAt={store.updatedAt}
-        />}
+        />} */}
         </>
     )
 }

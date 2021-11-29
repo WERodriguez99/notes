@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import jws from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 export const veriryToken = async ( req: Request, __res: Response, next: NextFunction ) => {
     try {
@@ -7,7 +7,7 @@ export const veriryToken = async ( req: Request, __res: Response, next: NextFunc
 
         if(!token) throw new Error( "no Token aws Provided" );
         
-        typeof token === 'string' && jws.verify(token, "mysecretkey") && next()
+        typeof token === 'string' && jwt.verify(token, "mysecretkey") && next()
     }
     catch(err){
         next(err)

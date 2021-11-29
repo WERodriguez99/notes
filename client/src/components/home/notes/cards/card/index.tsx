@@ -1,6 +1,9 @@
 
 import React from 'react';
 
+import utils from '../../../../../utils';
+import './index.scss';
+
 interface INote {
     id?: string,
     title?: string,
@@ -8,10 +11,12 @@ interface INote {
 }
 
 const Note: React.FC<INote> = ({ id, title, note }): JSX.Element => {
+    const a = utils.descriptionLength(note, 50);
+    const b = utils.descriptionLength(title, 15);
     return (
-        <div key={id}>
-            <h2>{title}</h2>
-            <p>{note}</p>
+        <div className='note' key={id}>
+            <h2>{b()}</h2>
+            <p>{a()}</p>
         </div>
     )
 };
