@@ -12,6 +12,7 @@ import Login from './login';
 
 
 import './index.scss'
+import logo from '../../img/noteIcon_02.png'
 
 const Register_login: React.FC = (): JSX.Element => {
 
@@ -25,6 +26,9 @@ const Register_login: React.FC = (): JSX.Element => {
 
     return (
         <>
+        <div className='containerIMGLanding'>
+            {/* //<img src={logo} alt="" /> */}
+        </div>
             { 
                 !loading ? state.s ? <div className='containerForm_login'> <Login/> </div> : <div className='containerForm_register'> <Register/> </div> : ReactDOM.createPortal(<Loader/>, element) }
 

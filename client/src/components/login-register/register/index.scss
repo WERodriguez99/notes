@@ -3,15 +3,16 @@
 @import '../../../scss/variants.scss';
 
 .form_register {
+
+    margin-top: -1.5rem;
     
     h2 {
-        color:#CDCDC0;
-        margin-bottom: 1.5vh;
-        margin-top: 2vh;
+        //color:#CDCDC0;
+        font-size: 2rem;
+        margin-bottom: 8vh;
+        margin-top: -8rem;
         display: flex;
         justify-content: center;
-        align-items: center;
-        align-content: center;
         
     }
     
@@ -20,14 +21,25 @@
     };
 
     input {
-        @include input_form($box_shadow, $backform, 1rem, 1.5vh)
+        margin-top: -1rem;
+        @include input_form($box_shadow, $backform, 1rem, 3.8rem)
     }
 
-    button {
-        margin-left: 8.6vw;
-        margin-top: .5vh; 
-        @include button($backform)
-    };
+    .containerBTN{
+
+        position: absolute;
+        background-image: url('../../../img/noteIcon_05.png');
+        background-size: 5rem;
+        background-repeat: no-repeat;
+        background-position: 8rem -2rem;
+        top: 15.6rem;
+
+        button {
+            margin-left: 9.5vw;
+            margin-top: -1rem; 
+            @include button(none)
+        };
+    }
 }
 
 @media screen and (max-width: 950px) {

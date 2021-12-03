@@ -48,7 +48,9 @@ const Register: React.FC = (): JSX.Element => {
 
                 <input type='password' id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
 
-                <button type='submit' onClick={() => sendData(state)}> send </button>
+                <div className='containerBTN'>
+                    <button type='submit' onClick={() => sendData(state)}> send </button>
+                </div>
             </form>
         </div>
     )

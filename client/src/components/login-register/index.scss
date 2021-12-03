@@ -3,8 +3,24 @@
 @import '../../scss/variants.scss';
 
 body {
-    background: $backform;
+    background: url('../../img/noteIcon_04.png');
+    background-size: 90rem 60rem;
+    background-position-x: -5rem;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
+
+.containerIMGLanding {
+    background: url('../../img/noteIcon_07.png');
+    background-size: 32rem;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 27rem;
+    top: 4rem;
+    height: 50rem;
+    width: 50rem;
+}
+
 
 .containerForm_login {
     @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 30vh)
@@ -15,8 +31,8 @@ body {
 
 .send_btn_login {
     position: absolute;
-    top: 68vh;
-    left: 56.5vw;
+    top: 80vh;
+    left: 57vw;
     right: 0;
     margin: auto;
     
@@ -33,8 +49,8 @@ body {
 
 .send_btn_register {
     position: absolute;
-    top: 74vh;
-    left: 56.5vw;
+    top: 80vh;
+    left: 57vw;
     right: 0;
     margin: auto;
     
