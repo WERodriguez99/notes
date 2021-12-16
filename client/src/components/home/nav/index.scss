@@ -4,8 +4,9 @@
 
 .nav {
     display: flex; 
-    background: $backgraundColor_3;
-    box-shadow: $box_shadow;
+    background: $color4;
+    border-bottom: solid 1.5px black;
+    box-shadow: 0px 0px 10px black;
     height: 10vh;
 
     h1 {

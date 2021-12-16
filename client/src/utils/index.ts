@@ -1,8 +1,6 @@
 
 import { FormEvent } from 'react';
 
-import Swal from 'sweetalert2';
-
 const utils = {
     
     logout: () => {

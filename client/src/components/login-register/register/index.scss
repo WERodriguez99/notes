@@ -4,40 +4,68 @@
 
 .form_register {
 
-    margin-top: -1.5rem;
+    margin-top: -11rem;
     
     h2 {
-        //color:#CDCDC0;
+        background: rgba(255, 255, 255, 0.616);
+        border-radius: 15px 15px 0px 0px ;
+        position: absolute;
+        margin-top: -7rem;
+        margin-left: -2rem;
+        width: 25rem;
+        text-align: center;
         font-size: 2rem;
-        margin-bottom: 8vh;
-        margin-top: -8rem;
-        display: flex;
-        justify-content: center;
         
     }
     
     form {
-        @include form();
+        margin-top: 4rem;
+        @include form()
     };
 
     input {
-        margin-top: -1rem;
-        @include input_form($box_shadow, $backform, 1rem, 3.8rem)
+        
+        @include input_form($box_shadow, $backform, 1rem, .5rem);
+        background: white;
+        margin-bottom: 1rem;
+    }
+
+    .container_err_name {
+        position: absolute;
+        top: -6.5rem;
+    }
+    .container_err_mail {
+        position: absolute;
+        top: -2rem;
+    }
+    .container_err_pass {
+        position: absolute;
+        bottom: 4rem;
+        
     }
 
     .containerBTN{
 
+        background: $color4;
         position: absolute;
-        background-image: url('../../../img/noteIcon_05.png');
-        background-size: 5rem;
-        background-repeat: no-repeat;
-        background-position: 8rem -2rem;
-        top: 15.6rem;
+        left: 0;
+        right: 0;
+        top: 8rem;
+        bottom: 0;
+        margin: auto;
+        height: 2rem;
+        width: 4rem;
+        border-radius: 15px;
 
         button {
-            margin-left: 9.5vw;
-            margin-top: -1rem; 
-            @include button(none)
+            @include button(none);
+            position: relative;
+            width: 0;
+            left: .7rem;
+            right: 0;
+            top: .2rem;
+            bottom: 0;
+            margin: auto;
         };
     }
 }
@@ -90,14 +118,13 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 360px) {
     .form_register {
-        input {
-            width: 17.5vw;
-        };
-
-        button {
-            margin-left: 3.7vw;
+        
+        h1 {
+            margin-bottom: 8vh;
+            margin-top: -5rem;
         }
+
     }
 }

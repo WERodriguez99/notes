@@ -2,11 +2,14 @@
 @import '../../../../scss/mixins.scss';
 @import '../../../../scss/variants.scss';
 
-form {
+.containerNewNote {
+    background-color: $color4;
     @include form();
+    padding: .6rem;
+    border-radius: 15px;
 
     input {
-        @include input_form($borderColor, $backform, 1.3rem, 3vh)
+        @include note_input($color1, $backform, 1.3rem, 3vh)
     };
 
     textarea {
@@ -15,6 +18,8 @@ form {
     };
 
     button {
+        margin-top: -1rem;
+        box-shadow: 0px 0px 15px black;
         @include button($backform)
     }
 }

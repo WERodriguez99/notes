@@ -41,9 +41,9 @@
         .tr_btn td{
                 height: 5vh;
                 width: 50vw;
-                background: $backgraundColor_3;
+                background: $color4;
                 border-radius: 10px 10px 0px 0px;
-                box-shadow: 0 5px 10px $borderColor;
+                box-shadow: 0 5px 15px $borderColor;
                          
                 button {
                     height: 1vh;
@@ -130,7 +130,7 @@
                 margin-bottom: 1vh;
                 button {
 
-                    @include button($backgraundColor_3)
+                    @include button($color4)
                 }
 
                 button:hover { 

@@ -4,6 +4,7 @@ import { Router, ErrorRequestHandler } from 'express';
 import { verifyUser } from '../../middlewares/verifyUser';
 import { veriryToken } from '../../middlewares/verifyToken';
 import { verifyNewNote } from '../../middlewares/user/verifyNewNote';
+import { verifyModifyNote } from '../../middlewares/user/verifyModifyNote';
 
 // CONTROLLERS
 
@@ -30,6 +31,6 @@ user.get('/home', veriryToken, account);
 user.get('/allnote', account);
 user.get('/note/:id', detailsNote);
 user.post('/note', verifyNewNote, addNote);
-user.put('/note/:id', modifyNote);
+user.put('/note/:id', verifyModifyNote, modifyNote);
 user.delete('/note/:id', deleteNote);
 user.use(errorHadler);
