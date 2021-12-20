@@ -47,7 +47,7 @@ const NewNote: React.FC = (): JSX.Element => {
     }, [Send])
 
     return (
-        <form onSubmit={e => utils.handleSubmit(e)}>
+        <form className='containerNewNote' onSubmit={e => utils.handleSubmit(e)}>
             <input type="text" id="title" value={state.title} onChange={ e => handleChange(e)} placeholder="Title" />
 
             <textarea id='note' value={state.note} onChange={ e => handleChange(e)} placeholder='You note...' />

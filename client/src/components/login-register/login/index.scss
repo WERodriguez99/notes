@@ -4,96 +4,90 @@
 
 .form {
 
+    margin-top: -9rem;
+    
     h2 {
-        color:#CDCDC0;
-        margin-bottom: 1.5vh;
-        margin-top: 2vh;
-        display: flex;
-        justify-content: center;
+        background: rgba(255, 255, 255, 0.616);
+        border-radius: 15px 15px 0px 0px ;
+        position: absolute;
+        margin-top: -9rem;
+        margin-left: -2rem;
+        width: 25rem;
+        text-align: center;
+        font-size: 2rem;
     };
     
     form {
+        margin-top: 4rem;
         @include form()
     };
     
+    
     input {
-        @include input_form($box_shadow, $backform, 1rem, 1.7vh)
+        @include input_form($box_shadow, $backform, 1rem, 0.5rem);
+        background: white;
+        margin-bottom: 1rem;
+    }
+
+    .containerBTN{
+
+        background: $color4;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 8rem;
+        bottom: 0;
+        margin: auto;
+        height: 2rem;
+        width: 4rem;
+        border-radius: 15px;
+        
+        button {
+            @include button(none);
+            position: relative;
+            width: 0;
+            left: .7rem;
+            right: 0;
+            top: .2rem;
+            bottom: 0;
+            margin: auto;
+        };
     }
     
-    button {
-        margin-left: 8.6vw;
-        margin-top: .5vh; 
-        @include button($backform)
-    };
 }
 
-@media screen and (max-width: 950px) {
-    .form {
-        input {
-            width: 20vw;
-        }
-
-        button {
-            margin-left: 6.7vw;
-        }
-    }
-}
-
-@media screen and (max-width: 950px) {
-    .form {
-        input {
-            width: 20vw;
-        };
-
-        button {
-            margin-left: 5.8vw;
-        }
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .form {
-        input {
-            width: 18.9vw;
-        };
-
-        button {
-            margin-left: 5.5vw;
-        }
-    }
-}
-
-@media screen and (max-width: 740px) {
-    .form {
-        input {
-            width: 18.3vw;
-        };
-
-        button {
-            margin-left: 4.8vw;
-        }
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .form {
-        input {
-            width: 17.5vw;
-        };
-
-        button {
-            margin-left: 3.7vw;
-        }
-    }
-}
 @media screen and (max-width: 360px) {
     .form {
-        input {
-            width: 35.5vw;
+        
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 6vh;
+            margin-left: -19vw;
+            margin-top: -8.8rem;
         };
 
-        button {
-            margin-left: 9vw;
+         input {
+            margin-left: -5rem;
+            background-size: 12rem 6rem;
+            background-position-x: 2.5rem;
         }
+
+        form {
+            gap: .5rem;
+        }
+    
+        .containerBTN{
+    
+            background-size: 5rem;
+            background-repeat: no-repeat;
+            background-position: 1rem 1.7rem;
+            
+    
+            button {
+                margin-left: 5vw;
+                margin-top: 4rem; 
+                
+            };
+        } 
     }
 }

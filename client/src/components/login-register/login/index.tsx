@@ -33,14 +33,17 @@ const Login: React.FC = (): JSX.Element => {
 
     return (
         <div className='form'>
-            <h2> login </h2>
+            
+            <h2> login  </h2>
 
-            <form onSubmit={e => utils.handleSubmit(e)}>
-                <input type='mail' id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
+            <form onSubmit={e => utils.handleSubmit(e)} autoComplete='nope' >
+                <input  type='mail' id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
 
                 <input type='password' id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
 
-                <button type='submit' onClick={() => sendData(state)}> send </button>
+                <div className='containerBTN'>
+                    <button type='submit' onClick={() => sendData(state)}> send </button>
+                </div>
             </form>
         </div>
     )

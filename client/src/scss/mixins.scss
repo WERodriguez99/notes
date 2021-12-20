@@ -1,5 +1,14 @@
 
 
+@mixin backStyle ($sizeX, $sizeY, $Py, $Px) {
+    background-image: url('../img/n.png');
+    background-repeat: no-repeat;
+    background-size: $sizeX $sizeY;
+    background-position-y: $Py;
+    background-position-x: $Px;
+    
+}
+
 @mixin buttonStyles($width:auto, $height:auto, $bg:none, $bR:0) {
     width: $width;
     height: $height;
@@ -19,15 +28,15 @@
    margin: auto;
    width: $whidth;
    height: $height;
-   background: $bgColor;
-   border-radius: 15px;
-   box-shadow: 0px 0px 15px $brColor;
+   //background: $bgColor;
+   //border-radius: 15px;
+   //box-shadow: 0px 0px 15px $brColor;
 }
 
 @mixin form() {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 2rem;
+    //padding: -1rem 1rem;
 
     display: grid;
 }
@@ -47,18 +56,39 @@
 }
 
 @mixin input_form($brColor, $bgColor, $font_s, $height) {
+    /* background:url('../img/noteIcon_08.png');
+    background-size: 18rem 7.2rem;
+    background-position-x: 2.2rem;
+    background-position-y: -.78rem;
+    background-repeat: no-repeat ; */
+    background: none;
+    
+    //padding: .5rem;
+    font-size: $font_s;
+    border: none;
+    border-radius: 10px;
+    //height: $height;
+    outline: none;
+    text-align: center;
+    
+    
+}
+
+@mixin note_input($brColor, $bgColor, $font_s, $height){
     background: $bgColor;
+    box-shadow: 0px 0px 15px black;
     padding: .5rem;
     font-size: $font_s;
     border: none;
     border-radius: 10px;
     height: $height;
-    
+    outline: none;
     text-align: center;
 }
 
 @mixin textArea_form($brColor, $bgColor) {
     background: $bgColor;
+    box-shadow: 0px 0px 20px black;
     padding: 1rem;
     border: none;
     border-radius: 10px;

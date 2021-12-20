@@ -58,7 +58,7 @@ const Details: React.FC<INoteDetails> = ({ id, author, title, note, createdAt, u
         }).then(async (result) => {
             if (result.isConfirmed) {
                 dispatch( noteActions.DeleteNote(id) )
-                setTimeout( () => setRefresh(!refresh), 20000)
+                setTimeout( () => setRefresh(!refresh), 2000)
             }
         })
     };

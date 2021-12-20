@@ -3,31 +3,71 @@
 @import '../../../scss/variants.scss';
 
 .form_register {
+
+    margin-top: -11rem;
     
     h2 {
-        color:#CDCDC0;
-        margin-bottom: 1.5vh;
-        margin-top: 2vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+        background: rgba(255, 255, 255, 0.616);
+        border-radius: 15px 15px 0px 0px ;
+        position: absolute;
+        margin-top: -7rem;
+        margin-left: -2rem;
+        width: 25rem;
+        text-align: center;
+        font-size: 2rem;
         
     }
     
     form {
-        @include form();
+        margin-top: 4rem;
+        @include form()
     };
 
     input {
-        @include input_form($box_shadow, $backform, 1rem, 1.5vh)
+        
+        @include input_form($box_shadow, $backform, 1rem, .5rem);
+        background: white;
+        margin-bottom: 1rem;
     }
 
-    button {
-        margin-left: 8.6vw;
-        margin-top: .5vh; 
-        @include button($backform)
-    };
+    .container_err_name {
+        position: absolute;
+        top: -6.5rem;
+    }
+    .container_err_mail {
+        position: absolute;
+        top: -2rem;
+    }
+    .container_err_pass {
+        position: absolute;
+        bottom: 4rem;
+        
+    }
+
+    .containerBTN{
+
+        background: $color4;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 8rem;
+        bottom: 0;
+        margin: auto;
+        height: 2rem;
+        width: 4rem;
+        border-radius: 15px;
+
+        button {
+            @include button(none);
+            position: relative;
+            width: 0;
+            left: .7rem;
+            right: 0;
+            top: .2rem;
+            bottom: 0;
+            margin: auto;
+        };
+    }
 }
 
 @media screen and (max-width: 950px) {
@@ -78,14 +118,13 @@
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 360px) {
     .form_register {
-        input {
-            width: 17.5vw;
-        };
-
-        button {
-            margin-left: 3.7vw;
+        
+        h1 {
+            margin-bottom: 8vh;
+            margin-top: -5rem;
         }
+
     }
 }
