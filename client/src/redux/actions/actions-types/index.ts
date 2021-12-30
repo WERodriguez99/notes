@@ -1,6 +1,11 @@
 
 enum ActionType {
 
+    // Activated account
+    GET_ACTIVATED = "GET_ACTIVATED",
+    GET_ACTIVATED_SUCCESS = "GET_ACTIVATED_SUCCESS",
+    GET_ACTIVATED_FAIL = "GET_ACTIVATED_FAIL",
+
     // Actions types register - login
     GET_REQUEST = "GET_REQUEST",
     REGISTER_SUCCESS = "REGISTER_RSUCCESS",

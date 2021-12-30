@@ -2,8 +2,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 import userModel, { User } from '../../models/user';
-import noteModel, { Note } from '../../models/note';
-import mongoose from 'mongoose';
+import noteModel from '../../models/note';
 
 
 export const account = async ( req: Request, res: Response, next: NextFunction ) => {
@@ -14,7 +13,7 @@ export const account = async ( req: Request, res: Response, next: NextFunction )
         if(token && typeof token === 'string'){
             
             notes === 'null' &&
-            ( (() => jwt.verify(token, "mysecretkey", {}, async (err: any, userID: any)=>{
+            ( (() => jwt.verify(token, "mysecretkey", {}, async (__err: any, userID: any)=>{
                 const user = await userModel.aggregate([{
                     $lookup: {
                         from: 'notes',

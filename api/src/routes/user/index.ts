@@ -5,11 +5,12 @@ import { verifyUser } from '../../middlewares/verifyUser';
 import { veriryToken } from '../../middlewares/verifyToken';
 import { verifyNewNote } from '../../middlewares/user/verifyNewNote';
 import { verifyModifyNote } from '../../middlewares/user/verifyModifyNote';
-
+import { verifyMail } from '../../middlewares/verifyMail';
 // CONTROLLERS
 
 import { singup } from '../../controllers/user/singup';
 import { login } from '../../controllers/user/login';
+import { verify } from '../../controllers/user/singup';
 
 import { account } from '../../controllers/user/account';
 import { detailsNote } from '../../controllers/user/note/details_note';
@@ -24,8 +25,9 @@ const errorHadler: ErrorRequestHandler = ( err, __req, res, __next) => {
     res.status(400).json({ msj: err.message })
 };
 
-user.post('/singup', singup);
+user.post('/singup', verifyMail, singup);
 user.post('/login', verifyUser, login);
+user.get('/activated/:token', verify);
 
 user.get('/home', veriryToken, account);
 user.get('/allnote', account);
