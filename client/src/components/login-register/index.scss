@@ -11,6 +11,46 @@ body {
     overflow: hidden;
 }
 
+.landing {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 6rem;
+    bottom: 0px;
+    margin: auto;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+                
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: $color4;
+        }
+
+        button:hover {
+            transform: scale(1.2,1.2);
+            border-bottom: 1px solid $color3 ;
+        }
+    }
+}
+
+.check-mail {
+    p {
+        text-align: center;
+        margin-top: 15rem;
+        font-size: 2rem;
+    }
+}
+
 .containerIMGLanding {
     box-shadow: 0px 0px 15px black;
     background: $color3;
@@ -54,7 +94,7 @@ body {
 .send_btn_register {
     position: absolute;
     top: 28rem;
-    left: 26vw;
+    left: 25.5vw;
     right: 0;
     margin: auto;
     

@@ -22,7 +22,7 @@ const Register_login: React.FC = (): JSX.Element => {
         classN: 'send_btn_login'
     });
     const [ landing, setLanding ] = useState(true)
-    const loading = useSelector(( state: rootStore ) => state.register_login.loading)
+    const store = useSelector(( state: rootStore ) => state.register_login)
     const element = utils.getElement("emergent");
 
     useEffect(() => {
@@ -34,20 +34,30 @@ const Register_login: React.FC = (): JSX.Element => {
         setLanding(false)
     }
     return (
-        !loading ? landing 
+        !store.loading ? landing 
         ? 
-            <div>
+            <div className='landing'>
                 <h2> Welcome to MyNote  </h2>
                 <p> <button onClick={() => offLanding(false) }> register </button> or <button onClick={() => offLanding(true) } > login </button> </p>
             </div> 
-        :
+        : 
+        
+        !store.msj 
+        
+        ?
         
         <div className='containerIMGLanding'>
             { 
                 state.s ? <div className='containerForm_login'> <Login/> </div> : <div className='containerForm_register'> <Register/> </div>
             } 
             <button className={state.classN} onClick={ ()=> setState({ ...state, s: !state.s, text: state.s? 'login' : 'register' }) }>{state.text}</button>
-        </div> 
+        </div>
+
+        :
+
+        <div className='check-mail'>
+            <p> check your email to activate the account </p>
+        </div>
         
         :
 

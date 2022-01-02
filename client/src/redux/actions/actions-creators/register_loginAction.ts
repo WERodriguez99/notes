@@ -40,6 +40,23 @@ const login_register = {
         }
     },
 
+    Activated: ( token: string ) => async ( dispatch: Dispatch<Action> ) => {
+        try{
+            const { data } = await axios.get(`user/activated/${token}`)
+
+            dispatch({
+                type: ActionType.GET_ACTIVATED_SUCCESS,
+                payload: data
+            })
+        }
+        catch( err: any ){
+            dispatch({
+                type: ActionType.GET_ACTIVATED_FAIL,
+                payload: err.response.data.msj
+            })
+        }
+    },
+
     Login: (info: { mail: string, pass: string }) => async (dispatch: Dispatch<Action>) => {
         try {
             const { data } = await axios.post<LoginModel>('/user/login', info);
