@@ -4,10 +4,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import utils from '../../utils';
 
-import dotenv from 'dotenv';
-dotenv.config();
-const { ADMIN_MAIL, FRONT_HOST } = process.env;
-
 export const singup = async ( req: Request, res: Response, next: NextFunction ) => {
     try {
         const { name, mail, pass }: User = req.body;
@@ -18,14 +14,14 @@ export const singup = async ( req: Request, res: Response, next: NextFunction ) 
       
 
         const saveUser = await newUser.save();
-        const token: string = jwt.sign({ _id: saveUser._id }, 'mysecretkey', { expiresIn: 60*60*24 })
+        const token: string = jwt.sign({ _id: saveUser._id }, utils.globalVar.mysecretkey, { expiresIn: 60*60*24 })
         
         await utils.transporter.sendMail({
-          from: ADMIN_MAIL,
+          from: utils.globalVar.admin_mail,
           to: mail,
           subject: "Verify your new Account in MyNotes",
           html: `<p> Hi ${newUser.name}. In order to verify your new Account, please </p>
-          <a href="${FRONT_HOST}confirmMail/${token}"> Click here </a>. 
+          <a href="${utils.globalVar.front_host}confirmMail/${token}"> Click here </a>. 
           <p>If you did not request a new account, please ignore this mail. </p>`,
         });
         
@@ -41,7 +37,7 @@ export const verify = async ( req: Request, res: Response, next: NextFunction ) 
     try {
         const { token } = req.params;
 
-        jwt.verify(token, 'mysecretkey', {}, async (__err: any, userID: any) => {
+        jwt.verify(token, utils.globalVar.mysecretkey, {}, async (__err: any, userID: any) => {
           const update = {activ: true}
           const activateUser = await modelUser.findByIdAndUpdate(userID, update)
   

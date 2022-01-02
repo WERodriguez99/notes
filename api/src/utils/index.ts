@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const { ADMIN_MAIL, ADMIN_PASS } = process.env;
+const { ADMIN_MAIL, ADMIN_PASS, MY_SECRET_KEY, FRONT_HOST } = process.env;
 
 const utils: any = {
     transporter: nodemailer.createTransport({
@@ -18,7 +18,16 @@ const utils: any = {
             tls: {
               rejectUnauthorized: false
             },
+
           }),
+
+      globalVar:  {
+          mysecretkey: MY_SECRET_KEY,
+          admin_pass: ADMIN_PASS,
+          admin_mail: ADMIN_MAIL,
+          front_host: FRONT_HOST,
+        },
+      
 };
 
 export default utils;

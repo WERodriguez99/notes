@@ -4,16 +4,17 @@ import jwt from 'jsonwebtoken';
 import userModel, { User } from '../../models/user';
 import noteModel from '../../models/note';
 
+import utils from '../../utils'
 
 export const account = async ( req: Request, res: Response, next: NextFunction ) => {
     try {
         const token = req.headers['x-access-token'];
         const { notes }= req.query
         
-        if(token && typeof token === 'string'){
+        if(token && typeof token === 'string' ){
             
             notes === 'null' &&
-            ( (() => jwt.verify(token, "mysecretkey", {}, async (__err: any, userID: any)=>{
+            ( (() => jwt.verify(token, utils.globalVar.mysecretkey, {}, async (__err: any, userID: any)=>{
                 const user = await userModel.aggregate([{
                     $lookup: {
                         from: 'notes',
@@ -28,7 +29,7 @@ export const account = async ( req: Request, res: Response, next: NextFunction )
             
             notes === 'notes' &&
             
-            ( (() => jwt.verify(token, "mysecretkey", {}, async (err: any, userID: any)=>{
+            ( (() => jwt.verify(token, utils.globalVar.mysecretkey, {}, async (__err: any, userID: any)=>{
                 //const note = await noteModel.findOne({ author: userID.id }).sort({ createdAt: -1 })
                 
                 const note = await noteModel.find({ author: userID.id })

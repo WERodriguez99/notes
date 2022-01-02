@@ -8,8 +8,9 @@ export const verifyMail = async ( req: Request, __res: Response, next: NextFunct
 
         if(!name || !mail || !pass) throw new Error(' Data invalid ' ) 
         
-        const account = await modelUser.findOne({ where: { mail: mail }})
-
+        const account = await modelUser.findOne({ mail: mail })
+        console.log(mail)
+        console.log(account)
         !account ? next() : ((()=>{ throw new Error(' mail in use ') })())
         
     }

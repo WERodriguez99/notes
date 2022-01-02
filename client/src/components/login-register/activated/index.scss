@@ -1,0 +1,7 @@
+
+@import '../../../scss/mixins.scss';
+@import '../../../scss/variants.scss';
+
+.containerForm_login {
+    @include containerForm($borderColor, $backgraundColor_3, 0rem, 14rem, 21rem, 10rem)
+}

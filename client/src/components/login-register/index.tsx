@@ -36,7 +36,7 @@ const Register_login: React.FC = (): JSX.Element => {
     return (
         !store.loading ? landing 
         ? 
-            <div>
+            <div className='landing'>
                 <h2> Welcome to MyNote  </h2>
                 <p> <button onClick={() => offLanding(false) }> register </button> or <button onClick={() => offLanding(true) } > login </button> </p>
             </div> 
@@ -55,7 +55,7 @@ const Register_login: React.FC = (): JSX.Element => {
 
         :
 
-        <div>
+        <div className='check-mail'>
             <p> check your email to activate the account </p>
         </div>
         

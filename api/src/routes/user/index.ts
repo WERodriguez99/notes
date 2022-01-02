@@ -17,7 +17,6 @@ import { detailsNote } from '../../controllers/user/note/details_note';
 import { addNote } from '../../controllers/user/note/add_note';
 import { modifyNote } from '../../controllers/user/note/modify_note';
 import { deleteNote } from '../../controllers/user/note/delete_note';
-import { allNotes } from '../../controllers/user/note/all_note';
 
 export const user = Router();
 
