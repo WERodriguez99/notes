@@ -1,6 +1,5 @@
 
 import LoginModel from '../../models/login';
-import msjModel from '../../models/mjs';
 import ActionType from '../actions/actions-types';
 import { Action } from '../actions/actions-interface/register_login' 
  

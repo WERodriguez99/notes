@@ -1,0 +1,27 @@
+
+@import './variants.scss';
+
+#arrow {
+    font-size: 2rem;
+    cursor: pointer;
+    color: $color2;
+}
+
+#arrow:hover {
+    transform: scale(1.1, 1.1);
+    color: $color3;
+    box-shadow: 0px 0px 15px $color2;
+    border: .2px solid $color2;
+    border-radius: 100%;
+}
+
+
+@media screen and (max-width: 360px) {
+    #arrow:hover {
+        transform: none;
+        color: $color2;
+        box-shadow: none;
+        border: none;
+        
+    }
+}

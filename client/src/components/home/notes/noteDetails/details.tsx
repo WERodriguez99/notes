@@ -20,9 +20,9 @@ interface INoteDetails {
 
 
 const Details: React.FC<INoteDetails> = ({ id, author, title, note, createdAt, updatedAt, refresh, setRefresh }): JSX.Element => {
-    
+
     const dispatch = useDispatch();
-    const [ state, setState ] = useState({
+    const [state, setState] = useState({
         title: title,
         note: note,
     });
@@ -34,17 +34,17 @@ const Details: React.FC<INoteDetails> = ({ id, author, title, note, createdAt, u
         styleNote: 'tr_note'
     });
 
-    const handelChange = ( e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement> ) => {
+    const handelChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const id = e.target.id;
         const value = e.target.value
-        setState({...state, [id]: value})
+        setState({ ...state, [id]: value })
     };
 
     const handelClick = () => {
-        setModify({ state: !modify.state, text: !modify.state? 'cancel' : 'modify', styleTitle: !modify.state ? 'tr_title_modify' : 'tr_title', styleNote: !modify.state ? 'tr_note_modify' : 'tr_note'})
+        setModify({ state: !modify.state, text: !modify.state ? 'cancel' : 'modify', styleTitle: !modify.state ? 'tr_title_modify' : 'tr_title', styleNote: !modify.state ? 'tr_note_modify' : 'tr_note' })
     };
 
-    const delet = () =>  {
+    const delet = () => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -57,13 +57,13 @@ const Details: React.FC<INoteDetails> = ({ id, author, title, note, createdAt, u
             confirmButtonText: 'Yes, delete it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                dispatch( noteActions.DeleteNote(id) )
-                setTimeout( () => setRefresh(!refresh), 2000)
+                dispatch(noteActions.DeleteNote(id))
+                setTimeout(() => setRefresh(!refresh), 2000)
             }
         })
     };
-    
-    const modifyNote = () =>  {
+
+    const modifyNote = () => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -76,44 +76,53 @@ const Details: React.FC<INoteDetails> = ({ id, author, title, note, createdAt, u
             confirmButtonText: 'Yes, modify!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                dispatch( noteActions.ModifyNote(id, state) )
-                setTimeout( () => setRefresh(!refresh), 2000)
-                
+                dispatch(noteActions.ModifyNote(id, state))
+                setTimeout(() => setRefresh(!refresh), 2000)
+
             }
         })
     };
-    
+
     return (
         <div className='container_DNote'>
             <div className='back_clean' onClick={() => dispatch(noteActions.CleanNote())}>
-                
+
             </div>
-           <table className='details'>
-               <tr className='tr_btn'>
-                   <td>
-                        <button onClick={ () => dispatch(noteActions.CleanNote()) }></button>
-                   </td>
-               </tr>
-                <tr className='tr_title'>
-                    <td> { modify.state ? <input type="text" id='title' value={state.title} onChange={e => handelChange(e)} placeholder="Title" /> : <h2>{title}</h2>} </td>
-                </tr>
-                <tr className={ modify.styleNote }>
-                    <td> <textarea disabled={!modify.state} id="note" cols={30} rows={10} value={state.note} onChange={e => handelChange(e)} placeholder="Note"></textarea> </td>
-                </tr>
-                <tr className='tr_btns'>
-                        {modify.state ? 
+            <table className='details'>
+
+                <thead>
+                    <tr className='tr_btn'>
                         <td>
-                            <button onClick={()=> modifyNote() } > send </button>
+                            <button onClick={() => dispatch(noteActions.CleanNote())}></button>
                         </td>
-                        :
-                        <td>
-                            <button onClick={ () => delet() }> delete </button>
-                        </td>
+                    </tr>
+
+                    <tr className='tr_title'>
+                        <td> {modify.state ? <input type="text" id='title' value={state.title} onChange={e => handelChange(e)} placeholder="Title" /> : <h2>{title}</h2>} </td>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+
+                    <tr className={modify.styleNote}>
+                        <td> <textarea disabled={!modify.state} id="note" cols={30} rows={10} value={state.note} onChange={e => handelChange(e)} placeholder="Note"></textarea> </td>
+                    </tr>
+                    <tr className='tr_btns'>
+                        {modify.state ?
+                            <td>
+                                <button onClick={() => modifyNote()} > send </button>
+                            </td>
+                            :
+                            <td>
+                                <button onClick={() => delet()}> delete </button>
+                            </td>
                         }
-                    <td>
-                        <button id='modify' onClick={()=> handelClick()}>{modify.text}</button>
-                    </td>
-                </tr>
+                        <td>
+                            <button id='modify' onClick={() => handelClick()}>{modify.text}</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
         </div>

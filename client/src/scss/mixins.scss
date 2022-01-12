@@ -20,25 +20,47 @@
     font-size: 1rem;
 }
 
-@mixin containerForm($brColor, $bgColor, $p_left, $p_top, $whidth, $height) {
-   position: absolute;
-   left: $p_left;
-   right: 0;
-   top: $p_top;
-   margin: auto;
-   width: $whidth;
-   height: $height;
-   //background: $bgColor;
-   //border-radius: 15px;
-   //box-shadow: 0px 0px 15px $brColor;
+@mixin containerForm($whidth, $height) {
+   
+    width: $whidth;
+    height: $height;
+
+    background: #3c9ec3;
+    box-shadow: $box_shadow;
+    border-radius: $b-radius;
 }
 
-@mixin form() {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    //padding: -1rem 1rem;
+@mixin register-err($top) {
+    position: absolute;
+    top: $top;
+    left: 36rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+@mixin form($gap, $mg-top) {
 
     display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $gap;
+
+    margin-top: $mg-top;
+
+    input {
+        
+        font-size: 1rem;
+        text-align: center;
+        margin: auto;
+        border: none;
+        border-radius: 15px;
+
+        height: 1.5rem;
+        width: 16rem;
+
+        outline: none;
+    }
 }
 
 @mixin button($bgColor) {
@@ -56,18 +78,13 @@
 }
 
 @mixin input_form($brColor, $bgColor, $font_s, $height) {
-    /* background:url('../img/noteIcon_08.png');
-    background-size: 18rem 7.2rem;
-    background-position-x: 2.2rem;
-    background-position-y: -.78rem;
-    background-repeat: no-repeat ; */
+    
     background: none;
     
-    //padding: .5rem;
     font-size: $font_s;
     border: none;
     border-radius: 10px;
-    //height: $height;
+    height: $height;
     outline: none;
     text-align: center;
     
@@ -78,7 +95,7 @@
     background: $bgColor;
     box-shadow: 0px 0px 15px black;
     padding: .5rem;
-    font-size: $font_s;
+    font-size: 1rem;
     border: none;
     border-radius: 10px;
     height: $height;
@@ -87,15 +104,15 @@
 }
 
 @mixin textArea_form($brColor, $bgColor) {
+    
     background: $bgColor;
     box-shadow: 0px 0px 20px black;
     padding: 1rem;
     border: none;
     border-radius: 10px;
-    height: 47vh;
+    height: 24vh;
     text-align: center;
     font-size: 1rem;
-    overflow-y: scroll;
 }
 
 @mixin scrollbar($width, $height) {
@@ -115,4 +132,29 @@
 
 @mixin scroll_active ($colorScroll) {
     background: $colorScroll;
+}
+
+@mixin eye_slash () {
+    background: none;
+    border: none;
+    #eyeSlashDisabled {
+        font-size: 1.2rem;
+        color: $color4;
+        cursor: pointer;
+    };
+    
+    #eyeSlashDisabled:hover {
+        transform: scale(1.1,1.1)
+    };
+    
+    #eyeSlashActive {
+        font-size: 1.2rem;
+        color: black;
+        cursor: pointer;       
+    }
+    
+    #eyeSlashActive:hover {
+        transform: scale(1.1,1.1)
+    }
+
 }

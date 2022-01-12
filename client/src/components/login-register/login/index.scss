@@ -3,91 +3,44 @@
 @import '../../../scss/variants.scss';
 
 .form {
-
-    margin-top: -9rem;
     
     h2 {
+        margin-top: 0;
         background: rgba(255, 255, 255, 0.616);
         border-radius: 15px 15px 0px 0px ;
-        position: absolute;
-        margin-top: -9rem;
-        margin-left: -2rem;
-        width: 25rem;
         text-align: center;
         font-size: 2rem;
     };
     
     form {
-        margin-top: 4rem;
-        @include form()
-    };
-    
-    
-    input {
-        @include input_form($box_shadow, $backform, 1rem, 0.5rem);
-        background: white;
-        margin-bottom: 1rem;
+        @include form(2rem, 2.5rem)
+    }
+
+    #btn_eyeSlash {
+        @include eye_slash()        
     }
 
     .containerBTN{
 
-        background: $color4;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 8rem;
-        bottom: 0;
         margin: auto;
-        height: 2rem;
-        width: 4rem;
-        border-radius: 15px;
         
         button {
-            @include button(none);
-            position: relative;
-            width: 0;
-            left: .7rem;
-            right: 0;
-            top: .2rem;
-            bottom: 0;
-            margin: auto;
+            @include button($color4);
+            height: 2rem;
+            font-size: .8rem
         };
+
+        button:hover {
+            background: white;
+        }
     }
     
 }
 
 @media screen and (max-width: 360px) {
     .form {
-        
-        h2 {
-            font-size: 1.6rem;
-            margin-bottom: 6vh;
-            margin-left: -19vw;
-            margin-top: -8.8rem;
-        };
-
-         input {
-            margin-left: -5rem;
-            background-size: 12rem 6rem;
-            background-position-x: 2.5rem;
-        }
-
         form {
-            gap: .5rem;
+            gap: 2rem;
         }
-    
-        .containerBTN{
-    
-            background-size: 5rem;
-            background-repeat: no-repeat;
-            background-position: 1rem 1.7rem;
-            
-    
-            button {
-                margin-left: 5vw;
-                margin-top: 4rem; 
-                
-            };
-        } 
     }
 }

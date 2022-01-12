@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import utils from '../../../../../utils';
 import './index.scss';
@@ -11,12 +11,16 @@ interface INote {
 }
 
 const Note: React.FC<INote> = ({ id, title, note }): JSX.Element => {
-    const a = utils.descriptionLength(note, 50);
-    const b = utils.descriptionLength(title, 15);
+
+    const [ state, setState ] = useState(window.screen.width < 1000 ? 10 : 25)
+    window.addEventListener('resize', (event) => setState(window.screen.width < 1000 ? 10 : 25))
+    const a = utils.descriptionLength(title, 15);
+    const b = utils.descriptionLength(note, state);
+
     return (
         <div className='note' key={id}>
-            <h2>{b()}</h2>
-            <p>{a()}</p>
+            <h2>{a}</h2>
+            <p>{b}</p>
         </div>
     )
 };

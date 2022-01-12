@@ -12,9 +12,8 @@ const utils = {
 
     getElement: (id: string) => document.getElementById(id) || document.createElement(id),
     
-    descriptionLength: ( prop: string | undefined, length: number ) => {
-        return () => prop && prop.length < length ? prop : `${prop?.slice(0, length)}...`;
-    },
+    descriptionLength: ( prop: string | undefined, length: number ) => prop && prop.length < length ? prop : `${prop?.slice(0, length)}...`
+    ,
 
     paginate: (page: number, store: number) => {
         const renderNotes = 6;

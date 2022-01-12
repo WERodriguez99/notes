@@ -37,7 +37,7 @@
         border-radius: 15px;
         background: $backform;
         box-shadow: $box_shadow;
-        z-index: 100;
+        z-index: 200;
         .tr_btn td{
                 height: 5vh;
                 width: 50vw;
@@ -50,6 +50,8 @@
                     width: 1.6vw;
                     position: absolute;
                     right: 1vw;
+                    border: none;
+                    border-radius: 15px;
                 }
 
                 button:hover {
@@ -57,7 +59,6 @@
                     transform: scale(1.1,1.1);
                     background: rgb(0, 0, 0);
                     border: none;
-                    border-radius: 15px;
                 }
         }
 
@@ -124,21 +125,68 @@
 
         .tr_btns {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             justify-items: center;
             td {
                 margin-bottom: 1vh;
                 button {
-
-                    @include button($color4)
+                    @include button($color4);
+                    width: 7rem;
+                    height: 1.5rem;
+                    font-size: .9rem;
                 }
 
                 button:hover { 
-                    @include hoverBTN($borderColor, #ffff)
+                    @include hoverBTN($borderColor, #ffff);
                 }
             }
         }
     }
     
     
+}
+
+@media screen and (max-width: 360px) {
+
+    .container_DNote {
+        
+        .details{
+            width: 20rem;
+
+            .tr_btn td button {
+                right: 1.5rem;
+                height: .5rem;
+                width: 1.5rem;
+                top: 1rem;
+            }
+            
+            .tr_note_modify {
+                td {
+                    textarea {
+                        width: 72vw;
+                        
+                    }
+                }
+            }
+            
+            .tr_title td {
+                padding: 1rem;
+            }
+            
+            .tr_note td textarea {
+                width: 17rem;
+            }
+
+            .tr_btns td button:hover {
+                
+                background: $color4;
+                color: black;
+                width: 7rem;
+                height: 1.5rem;
+                font-size: .9rem;
+            }
+        }
+        
+        
+    }
 }
