@@ -7,6 +7,9 @@ import RegisterActions from '../../../redux/actions/actions-creators/register_lo
 import IRegister from '../../../models/register';
 import validate from '../../../utils/validate'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
 import './index.scss';
 
 const Register: React.FC = (): JSX.Element => {
@@ -27,6 +30,12 @@ const Register: React.FC = (): JSX.Element => {
     });
 
     const [ err, setErr ] = useState<IRegister>({})
+
+    const [ viewPass, setViewPass ] = useState({
+        boolean: false,
+        type: 'password',
+        state: 'eyeSlashDisabled'
+    });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
         const id = e.target.id;
@@ -59,8 +68,10 @@ const Register: React.FC = (): JSX.Element => {
                 <input type='mail' id='mail' value={state.mail} placeholder='mail' onChange={ e => handleChange(e) }/>
                 { err.mail && <div className='container_err_mail'> <p className='err'> {err.mail} </p> </div> }
 
-                <input type='password' id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
+                <input type={viewPass.type} id='pass' value={state.pass} placeholder='password' onChange={ e => handleChange(e) }/>
                 { err.pass && <div className='container_err_pass' > <p className='err'> {err.pass} </p> </div> }
+
+                <button id='btn_eyeSlash' onClick={ () => setViewPass({boolean: !viewPass.boolean, type: !viewPass.boolean ? 'text' : 'password', state: !viewPass.boolean ? 'eyeSlashActive' : 'eyeSlashDisabled'})} > <FontAwesomeIcon icon={faEyeSlash} id={viewPass.state}/> </button>
 
                 <div className='containerBTN'>
                     <button type='submit' onClick={() => sendData(state)}> send </button>

@@ -4,18 +4,15 @@
 
 
 body {
-    background: url('../../img/noteIcon_04.png');
-    background-size: 90rem 60rem;
-    background-position-x: -5rem;
-    background-repeat: no-repeat;
     overflow: hidden;
+    background: azure;
 }
 
 .landing {
     position: absolute;
     left: 0px;
     right: 0px;
-    top: 6rem;
+    top: 14rem;
     bottom: 0px;
     margin: auto;
 
@@ -52,31 +49,25 @@ body {
 }
 
 .containerIMGLanding {
-    box-shadow: 0px 0px 15px black;
-    background: $color3;
-    border-radius: 15px;
-    position: absolute;
-    left: 0;
-    right:0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 25rem;
-    width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
 }
 
 
 .containerForm_login {
-    @include containerForm($borderColor, $backgraundColor_3, 0rem, 14rem, 21rem, 10rem)
+    @include containerForm(26rem, 20rem);
 }
+
 .containerForm_register {
-    @include containerForm($borderColor, $backgraundColor_3, 0rem, 14rem, 21rem, 10rem)
+    @include containerForm(26rem, 22rem);
 }
 
 .send_btn_login {
     position: absolute;
-    top: 28rem;
-    left: 25.5vw;
+    top: 32rem;
+    left: 60.2vw;
     right: 0;
     margin: auto;
     
@@ -93,8 +84,8 @@ body {
 
 .send_btn_register {
     position: absolute;
-    top: 28rem;
-    left: 25.5vw;
+    top: 31.5rem;
+    left: 60vw;
     right: 0;
     margin: auto;
     
@@ -109,55 +100,33 @@ body {
     border-bottom: 1px solid black;
 }
 
-@media screen and (max-width: 1200px) {
 
-    
-    .containerForm_login {
-        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 30vh)
-    }
-
-    .containerForm_register {
-        @include containerForm($borderColor, $backgraundColor_3, 0, 35vh, 25vw, 36vh)
-    }
-
-    .send_btn_login {
-        top: 68vh;
-    }
-
-    .send_btn_register {
-        top: 75vh;
-    }
-}
 
 @media screen and (max-width: 360px) {
 
-    body {
-        overflow: hidden;
-        background: azure;
-    }
-
     .containerIMGLanding {
-        height: 1rem;
-        background-size: 22rem 23rem; 
-        left: -1.4rem;
-        top: 5rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
     }
 
     .containerForm_login {
-        @include containerForm($borderColor, $backgraundColor_3, -23rem, 10rem, 12rem, 5rem)
+        @include containerForm(19rem, 18.5rem)
     }
 
     .containerForm_register {
-        @include containerForm($borderColor, $backgraundColor_3, -23rem, 10rem, 12rem, 5rem)
+        @include containerForm(19rem, 22rem)
     }
 
     .send_btn_login {
-        left: 52.5vw;
-        top: 53vh;
+        left: 72.5vw;
+        top: 81vh;
+        font-size: 1rem;
     }
 
     .send_btn_register {
-        left: 55vw;
-        top: 53vh;
+        left: 72.5vw;
+        top: 78vh;
+        font-size: 1rem;
     }
 }

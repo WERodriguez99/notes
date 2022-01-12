@@ -1,0 +1,26 @@
+
+@import './variants.scss';
+
+.conten-cog {
+    display: grid;
+    justify-items: center;
+    margin-top: 10rem;
+
+    #cog {
+        font-size: 7rem;
+        color: $color3;
+        -webkit-animation: girar 5s linear infinite;
+        -o-animation: girar 5s linear infinite;
+        animation: girar 5s linear infinite;
+    }
+    
+    p {
+        color: $color4;
+        font-size: 2rem;
+    }
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

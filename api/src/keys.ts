@@ -1,5 +1,11 @@
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+const { DB_URL } = process.env
+
 export const mongodb: {
     "URI": string
 } = {
-    "URI": "mongodb://localhost/notes"
+    "URI": DB_URL || "mongodb://localhost/notes"
 }

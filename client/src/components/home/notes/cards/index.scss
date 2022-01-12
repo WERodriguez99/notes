@@ -2,13 +2,20 @@
 @import '../../../../scss/mixins.scss';
 @import '../../../../scss/variants.scss';
 
-.filter {
+
+.container_filter {
     position: absolute;
-    background: $backform;
-    border: none;
-    border-radius: 10px;
-    right: .5vw;
-    top: -5vh;
+    right: 5rem;
+    
+    .filter {
+        position: absolute;
+        background: $backform;
+        border: none;
+        border-radius: 10px;
+        right: .5vw;
+        top: -5vh;
+}
+
 }
 
 .container_notes {
@@ -39,5 +46,17 @@
 }
 
 .filter:hover {
-    transform: scale(1.1,1.1);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 360px) {
+    
+    .container_filter {
+        right: 1rem;
+    }
+
+    .container_notes:hover {
+        transform: none;
+        box-shadow: none;
+    }
 }

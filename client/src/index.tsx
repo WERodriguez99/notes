@@ -1,7 +1,8 @@
-import React from 'react';
+
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import InProgress from './utils/inProgress';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'
@@ -14,19 +15,28 @@ dotenv.config();
 
 axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001/'
 
-ReactDOM.render(
-
+const app = () => ReactDOM.render(
+  
   //<React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>,
+  <Provider store={store}>
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>
+  </Provider>,
   //</React.StrictMode>,
   document.getElementById('root')
-);
+  )
+  
+  
+  const progress = () => ReactDOM.render(<InProgress text='Mobile in progress'/>, document.getElementById('root')) 
+  
+  /* window.addEventListener('resize', (event) => {
+    window.screen.width > 1000 ? app() : progress()
+  }) 
+  
+  window.screen.width > 1000 ? app() : progress() */
+  app()
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  reportWebVitals(); 
+
+  

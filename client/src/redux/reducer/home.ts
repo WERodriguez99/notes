@@ -1,6 +1,5 @@
 
 import HomeModel from '../../models/home';
-import NoteModel from '../../models/note';
 import ActionsType from '../actions/actions-types';
 import { Action as AIHome } from '../actions/actions-interface/home';
 import { Action as AINotes } from '../actions/actions-interface/note';

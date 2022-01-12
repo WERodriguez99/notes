@@ -2,14 +2,32 @@
 @import '../../../../scss/mixins.scss';
 @import '../../../../scss/variants.scss';
 
+
+.back_clean {
+
+    position: absolute;    
+    left: 0;
+    right: 0;
+    top: 0vh;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+}
+
 .containerNewNote {
     background-color: $color4;
-    @include form();
-    padding: .6rem;
+   
+    
     border-radius: 15px;
+    height: 18rem;
+    width: 19rem;
+    display: grid;
+    gap: 1.5rem;
+    padding: .8rem;
 
     input {
         @include note_input($color1, $backform, 1.3rem, 3vh)
+
     };
 
     textarea {
@@ -18,8 +36,15 @@
     };
 
     button {
-        margin-top: -1rem;
+        
         box-shadow: 0px 0px 15px black;
         @include button($backform)
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .containerNewNote {
+        height: 20rem;
+        z-index: 100;
     }
 }

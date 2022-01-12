@@ -1,10 +1,10 @@
 
-import { Navigate, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 
 import Register_login from "./components/login-register";
 import Home from './components/home';
 import Verify from './components/login-register/activated';
-import routes from "./config/routes";
+
 
 const App: React.FC = (): JSX.Element => {
 

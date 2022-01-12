@@ -2,45 +2,44 @@
 @import '../../../scss/mixins.scss';
 @import '../../../scss/variants.scss';
 
-.container_pagination {
-    position: absolute;
-    left: 0;
-    top: 37vh;
-    right: 0;
-    margin: auto;
-    justify-items: center;
-    
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    #btn_right {
-        position: absolute;
-        top: 2vh;
-        right: 15.5vw;
+    #btn_right_act {
+        
         margin: auto;
-
+        border: none;
+        background: none;
+        
         
     }
-
+    #btn_right_des {
+        
+       visibility: hidden;        
+    }
+    
     #btn_right:hover {
         cursor: pointer;
     } 
-
-    #btn_left {
-        position: absolute;
-        top: 2vh;
-        left: 15.5vw;
+    
+    #btn_left_act {
+        
         margin: auto;
+        border: none;
+        background: none;
     }
-
+    
     #btn_left:hover {
         cursor: pointer;
     }
+    
+    #btn_left_des {
+        
+        visibility: hidden;  
+    }
 
     #page {
-        position: absolute;
-        top: 2vh;
+        
         margin: auto;
     }
-}
+
+
+    
